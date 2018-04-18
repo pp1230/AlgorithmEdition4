@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class 希尔排序 {
     public static int[] shellSort(int[] arr, int h){
         while (h>0) {
-            for (int i = h; i < arr.length; i++) {
-                for (int j = i; j -h +1 > 0 && arr[j - h] > arr[j]; j -= h) {
+            for (int i = h; i < arr.length; i+=h) {
+                for (int j = i; j > 0 && arr[j - h] > arr[j]; j -= h) {
                     int t = arr[j];
                     arr[j] = arr[j - h];
                     arr[j - h] = t;
                 }
             }
-            h/=3;
+            h/=2;
         }
         return arr;
     }
